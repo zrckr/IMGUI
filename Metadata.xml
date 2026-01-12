@@ -1,0 +1,10 @@
+<Metadata>
+   <Name>IMGUI</Name>
+   <Description>FEZ integration of ImGui.NET wrapper of Dear ImGui</Description>
+   <Author>zerocker</Author>
+   <Version>v1.90.9-1</Version>
+   <LibraryName>IMGUI.dll</LibraryName>
+   <Dependencies>
+      <DependencyInfo Name="HAT" MinimumVersion="1.0"/>
+   </Dependencies>
+</Metadata>
