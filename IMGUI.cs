@@ -8,13 +8,14 @@ namespace IMGUI;
 
 public class IMGUI : DrawableGameComponent
 {
+    [ServiceDependency] public ITargetRenderingManager TargetRenderer { private get; set; }
+
     private ImGuiRenderer _imGuiRenderer;
 
     public IMGUI(Game game) : base(game)
     {
         Enabled = true;
         DrawOrder = int.MaxValue;
-        RasterizerCombinerPatch.Apply();
     }
 
     public override void Initialize()
@@ -28,23 +29,28 @@ public class IMGUI : DrawableGameComponent
         
         DrawActionScheduler.Schedule(() =>
         {
+            RasterizerCombinerPatch.Apply();
             _imGuiRenderer = ImGuiRenderer.Create(Game);
+            TargetRenderer.PreDraw += PreDraw;
         });
-        
-        ServiceHelper.Get<ITargetRenderingManager>().PreDraw += gameTime =>
-        {
-            _imGuiRenderer.BeforeLayout(gameTime);
-        };
+    }
+
+    private void PreDraw(GameTime gameTime)
+    {
+        _imGuiRenderer?.BeforeLayout(gameTime);
     }
 
     public override void Draw(GameTime gameTime)
     {
-#region DEBUG
-        ImGuiX.SetNextWindowPos(new Vector2(10, 10), ImGuiCond.FirstUseEver);
-        ImGui.ShowAboutWindow();
-        ImGuiX.SetNextWindowSize(new Vector2(30, 30), ImGuiCond.FirstUseEver);
-        ImGui.ShowDemoWindow();
-#endregion
+        #region DEBUG
+        if (_imGuiRenderer != null)
+        {
+            ImGuiX.SetNextWindowPos(new Vector2(10, 10), ImGuiCond.FirstUseEver);
+            ImGui.ShowAboutWindow();
+            ImGuiX.SetNextWindowSize(new Vector2(30, 30), ImGuiCond.FirstUseEver);
+            ImGui.ShowDemoWindow();
+        }
+        #endregion
         _imGuiRenderer?.AfterLayout();
     }
 

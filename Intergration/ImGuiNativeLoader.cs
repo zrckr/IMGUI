@@ -52,6 +52,7 @@ internal static class ImGuiNativeLoader
             return false;
         }
         
+        Logger.Log("IMGUI", "Dear ImGui native library loaded successfully.");
         return true;
     }
     
