@@ -26,6 +26,41 @@ Additionally, the `ImGuiX` static class is provided for more fluent usage with X
    and extract it in the `Mods` directory as a folder.
 3. Run `MONOMODDED_FEZ.exe` and enjoy!
 
+## Referencing
+
+To use this mod in your mod, you need to add references to `IMGUI.dll` in these files:
+
+* `UserProperties.xml`:
+
+```xml
+<Project>
+   <PropertyGroup>
+      ...
+      <!--Insert path to where IMGUI mod is here-->
+      <ImGuiDir></ImGuiDir>
+   </PropertyGroup>
+</Project>
+```
+
+* `YourMod.csproj`:
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk">
+   ...
+   <!-- To use ImGuiX helper class -->
+   <Reference Include="IMGUI">
+      <HintPath>$(ImGuiDir)\IMGUI.dll</HintPath>
+      <Private>False</Private>
+   </Reference>
+   
+   <!-- To use ImGuiNET namespace -->
+   <Reference Include="ImGui.NET">
+      <HintPath>$(ImGuiDir)\ImGui.NET.dll</HintPath>
+      <Private>False</Private>
+  </Reference>
+</Project>
+```
+
 ## Building
 
 1. Clone the repository.
@@ -34,10 +69,10 @@ Additionally, the `ImGuiX` static class is provided for more fluent usage with X
 
 ## Versioning
 
-The mod follows the versioning scheme: `<IMGUI-VERSION>.<MOD-PATCH>`
+The mod follows the versioning scheme: `<UPSTREAM>.<REVISION>`
 
-* `IMGUI-VERSION`: the version of native `Dear ImGui`.
-* `MOD-PATCH`: in case of bug fixes or implementation improvements.
+* `UPSTREAM`: the version of native `Dear ImGui`.
+* `REVISION`: in case of bug fixes or implementation improvements.
 
 ## Contributing
 
