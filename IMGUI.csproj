@@ -28,29 +28,12 @@
     <Copy SourceFiles="$(NuGetPackageRoot)imgui.net\1.90.9.1\lib\netstandard2.0\ImGui.NET.dll" DestinationFolder="$(ModCompileOutputDir)\" Retries="0" />
     <Copy SourceFiles="$(NuGetPackageRoot)system.numerics.vectors\4.4.0\lib\netstandard2.0\System.Numerics.Vectors.dll" DestinationFolder="$(ModCompileOutputDir)\" Retries="0" />
     <Copy SourceFiles="$(NuGetPackageRoot)system.runtime.compilerservices.unsafe\4.4.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll" DestinationFolder="$(ModCompileOutputDir)\" Retries="0" />
+    <Copy SourceFiles="$(NuGetPackageRoot)imgui.net\1.90.9.1\runtimes\linux-x64\native\libcimgui.so" DestinationFiles="$(ModCompileOutputDir)\bin\linux-x64\libcimgui.so" Retries="0" />
+    <Copy SourceFiles="$(NuGetPackageRoot)imgui.net\1.90.9.1\runtimes\osx\native\libcimgui.dylib" DestinationFiles="$(ModCompileOutputDir)\bin\osx\libcimgui.dylib" Retries="0" />
+    <Copy SourceFiles="$(NuGetPackageRoot)imgui.net\1.90.9.1\runtimes\win-x64\native\cimgui.dll" DestinationFiles="$(ModCompileOutputDir)\bin\win-x64\cimgui.dll" Retries="0" />
+    <Copy SourceFiles="$(NuGetPackageRoot)imgui.net\1.90.9.1\runtimes\win-x86\native\cimgui.dll" DestinationFiles="$(ModCompileOutputDir)\bin\win-x86\cimgui.dll" Retries="0" />
+    <Copy SourceFiles="$(NuGetPackageRoot)imgui.net\1.90.9.1\runtimes\win-arm64\native\cimgui.dll" DestinationFiles="$(ModCompileOutputDir)\bin\win-arm64\cimgui.dll" Retries="0" />
   </Target>
-
-  <Target Name="CopyNativeLibs" BeforeTargets="BeforeCompile">
-    <Copy SourceFiles="$(NuGetPackageRoot)imgui.net\1.90.9.1\runtimes\linux-x64\native\libcimgui.so"
-          DestinationFiles="Dependencies\bin\linux-x64\libcimgui.so"
-          SkipUnchangedFiles="true" />
-    <Copy SourceFiles="$(NuGetPackageRoot)imgui.net\1.90.9.1\runtimes\osx\native\libcimgui.dylib"
-          DestinationFiles="Dependencies\bin\osx\libcimgui.dylib"
-          SkipUnchangedFiles="true" />
-    <Copy SourceFiles="$(NuGetPackageRoot)imgui.net\1.90.9.1\runtimes\win-x64\native\cimgui.dll"
-          DestinationFiles="Dependencies\bin\win-x64\cimgui.dll"
-          SkipUnchangedFiles="true" />
-    <Copy SourceFiles="$(NuGetPackageRoot)imgui.net\1.90.9.1\runtimes\win-x86\native\cimgui.dll"
-          DestinationFiles="Dependencies\bin\win-x86\cimgui.dll"
-          SkipUnchangedFiles="true" />
-    <Copy SourceFiles="$(NuGetPackageRoot)imgui.net\1.90.9.1\runtimes\win-arm64\native\cimgui.dll"
-          DestinationFiles="Dependencies\bin\win-arm64\cimgui.dll"
-          SkipUnchangedFiles="true" />
-  </Target>
-
-  <ItemGroup>
-    <EmbeddedResource Include="Dependencies\bin\**\*" />
-  </ItemGroup>
   
   <ItemGroup>
     <PackageReference Include="ImGui.NET" Version="1.90.9.1"/>

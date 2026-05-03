@@ -21,12 +21,6 @@ public class IMGUI : DrawableGameComponent
     public override void Initialize()
     {
         base.Initialize();
-        if (!ImGuiNativeLoader.TryToLoad())
-        {
-            Enabled = false;
-            return;
-        }
-        
         DrawActionScheduler.Schedule(() =>
         {
             RasterizerCombinerPatch.Apply();
@@ -57,7 +51,6 @@ public class IMGUI : DrawableGameComponent
     protected override void Dispose(bool disposing)
     {
         RasterizerCombinerPatch.Dispose();
-        ImGuiNativeLoader.Unload();
         base.Dispose(disposing);
     }
 }

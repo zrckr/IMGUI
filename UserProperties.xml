@@ -1,8 +1,5 @@
 <Project>
   <PropertyGroup>
-    <!--remove this property -->
-    <UserPropertiesNotSetUp>True</UserPropertiesNotSetUp>
-    
     <!--Insert path to FEZ game directory here-->
     <FezDir></FezDir>
     
