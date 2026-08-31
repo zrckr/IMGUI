@@ -5,7 +5,7 @@
    <Version>1.90.9.1</Version>
    <LibraryName>IMGUI.dll</LibraryName>
    <Dependencies>
-      <DependencyInfo Name="HAT" MinimumVersion="1.0"/>
+      <DependencyInfo Name="HAT" MinimumVersion="2.0"/>
    </Dependencies>
    <NativeDependencies>
       <NativeLibrary Architecture="X86" Platform="Windows">
