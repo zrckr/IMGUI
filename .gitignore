@@ -400,3 +400,6 @@ Dependencies/*
 
 # Custom output directory for HAT mod
 [Oo]ut/
+
+# Local FEZ/HAT build configuration; copy from the tracked template.
+UserProperties.xml

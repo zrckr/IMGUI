@@ -64,8 +64,9 @@ To use this mod in your mod, you need to add references to `IMGUI.dll` in these 
 ## Building
 
 1. Clone the repository.
-2. Include game references in the [UserProperties.xml](UserProperties.xml) file.
-3. Build it with your IDE of choice or with `dotnet` command.
+2. Copy `UserProperties.xml.template` to `UserProperties.xml` and set `FezDir` to your FEZ directory with HAT installed.
+3. Run `dotnet build` to build the mod and copy it into your FEZ `Mods` directory.
+   Use `dotnet build --configuration Release` for a Release build, or run `./scripts/generate_release.sh` to create a release ZIP.
 
 ## Versioning
 
