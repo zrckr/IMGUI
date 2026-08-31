@@ -36,7 +36,7 @@ public class IMGUI : DrawableGameComponent
 
     public override void Draw(GameTime gameTime)
     {
-        #region DEBUG
+#if DEBUG
         if (_imGuiRenderer != null)
         {
             ImGuiX.SetNextWindowPos(new Vector2(10, 10), ImGuiCond.FirstUseEver);
@@ -44,7 +44,7 @@ public class IMGUI : DrawableGameComponent
             ImGuiX.SetNextWindowSize(new Vector2(30, 30), ImGuiCond.FirstUseEver);
             ImGui.ShowDemoWindow();
         }
-        #endregion
+#endif
         _imGuiRenderer?.AfterLayout();
     }
 
