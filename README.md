@@ -1,6 +1,6 @@
 # IMGUI
 
-![](Docs/Thumbnail.png)
+![](docs/Thumbnail.png)
 
 *After all, all game developers now use ImGui everywhere, right?*
 
